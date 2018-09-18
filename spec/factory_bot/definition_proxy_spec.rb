@@ -56,7 +56,7 @@ describe FactoryBot::DefinitionProxy, "#method_missing" do
     expect(subject).to have_dynamic_declaration(:attribute_name).with_value(attribute_value)
   end
 
-  it "calls super" do
+  it "raises a NoMethodError" do
     invalid_call = -> { proxy.static_attributes_are_gone true }
     expect(invalid_call).to raise_error(NoMethodError)
   end
